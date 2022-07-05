@@ -19,7 +19,7 @@ int main(int argc,char *argv[])
 		return -1;
 	}
 	/*打开设备*/
-	fs=open(argv[1],O_RDWD);
+	fs=open(argv[1],O_RDWR);
 	if(0>fs)
 	{
 		printf("open %s failed!",argv[1]);

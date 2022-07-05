@@ -30,7 +30,7 @@
 #define DRIM_OFFSET          0x00000204
 #define OUTEN_OFFSET         0x00000208
 #define INTDIS_OFFSET        0x00000214
-#define APER_CLK_CTRL        0x0000012C
+#define APER_CLK_CTRL        0xF800012C
 
 /*
  *映射后的GPIO地址
@@ -129,7 +129,7 @@ static int __init led_init(void)
 	val&=~(0x1U<<7);
 	writel(val,data_addr);
 		
-	ret = register_chrdev(LED_MAJOY,LED_NAME,led_fops);
+	ret = register_chrdev(LED_MAJOY,LED_NAME,&led_fops);
 	if(0>ret)
 	{
 		printk(KERN_ERR"Register LED driver failed!\r\n");
